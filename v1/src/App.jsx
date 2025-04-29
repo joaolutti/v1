@@ -1,4 +1,4 @@
-import  Script  from "./components/animation/script";
+import { Script } from "./components/animation/script";
 
 function App() {
 

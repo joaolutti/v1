@@ -1,0 +1,44 @@
+/* src/components/animation/script.module.css */
+:root {
+  --black: #181818; /* Define the red color */
+}
+
+.wrapper {
+  /* Styles from original body and #creature-wrapper */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* Make sure this fits your layout */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; 
+}
+
+.creature {
+  /* Styles from original #creature */
+  /* Use vmin or a fixed unit if vh causes issues on resize */
+  font-size: .2vmin; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Dimensions set by JS */
+  flex-wrap: wrap;
+  transform-style: preserve-3d; 
+}
+
+.particle {
+  /* Styles from original #creature div */
+  transform-style: preserve-3d;
+  position: relative; 
+  width: 4em;
+  height: 4em;
+  margin: 3em;
+  border-radius: 50%; 
+  will-change: transform, opacity; 
+  /* Consider background, mix-blend-mode might not be needed */
+  /* mix-blend-mode: screen; */
+  background: var(--black); /* Uses the CSS variable */
+  /* box-shadow set by JS */
+}
