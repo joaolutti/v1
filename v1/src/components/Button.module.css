@@ -1,0 +1,10 @@
+.button {
+  font-family: 'PP Supply Sans Ultralight', sans-serif; /* Assuming from your index.css */
+  text-decoration: none;
+  color: #181818; 
+  padding-bottom: 2px;
+  border-bottom: 1px solid #181818; 
+  margin-right: 75px; 
+  font-size: 32px; /* Adjust as needed */
+}
+

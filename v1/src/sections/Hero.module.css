@@ -1,0 +1,28 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 50px 5%; 
+  min-height: 80vh; 
+  font-family: 'PP Supply Sans Ultralight', sans-serif;
+}
+
+.heroContent {
+  flex: 1;
+}
+
+
+.subText {
+  font-size:48px;
+  color: #181818;
+  text-align: left;
+  width: 388px;
+  margin-top: 0.1em;
+  margin-bottom: 1.5em;
+}
+
+.actions {
+  display: flex;
+  margin-top: 20px;
+}
+

@@ -1,10 +1,12 @@
-import { Script } from "./components/animation/script";
+//import { Script } from "./components/animation/script";
+import Navbar from './components/Navbar';
+import Hero from './sections/hero';
 
 function App() {
 
   return (
     <>
-      <Script />
+      <Hero />
     </>
   )
 }

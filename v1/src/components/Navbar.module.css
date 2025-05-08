@@ -1,0 +1,49 @@
+.year{
+  font-family: 'PP Supply Sans Ultralight';
+  font-size: 16px;
+  color: #181818;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.navbarLine {
+  width: 100%;
+  height: 3px;
+  background-color: #181818;
+  margin-bottom: 10px;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding-right: 64px;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-left: 20px;
+}
+
+.navbar a{
+font-size: 24px;
+font-family: 'PP Mondwest';
+color: #181818;
+text-align: left;
+display: inline-block;
+text-decoration: none;
+
+}
+
+.navbar a:hover {
+  color: green;
+}
+
+
+
+
+
