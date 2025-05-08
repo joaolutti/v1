@@ -1,0 +1,46 @@
+.codeContainer {
+    background-color: #292A2C;
+    border-radius: 7px;
+    padding: 1rem;
+    width: 450px;
+
+}
+
+.controlsContainer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px;
+}
+
+.controlDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+}
+
+.redDot {
+    background-color: #FF5D56;
+}
+
+.yellowDot {
+    background-color: #FBB534;
+}
+
+.greenDot {
+    background-color: #20CB36;
+}
+
+.code{
+    color: #f0f0f0;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 13px;
+    padding-left: 0;
+    line-height: 1.5;
+}
+
+
+
+
+
+

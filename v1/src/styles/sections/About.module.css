@@ -1,0 +1,54 @@
+.about{
+  padding:1rem;
+}
+
+.contentGrid{
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two-column layout */
+  gap: 2rem;
+  align-items: start; /* Align items to the start of the grid area */
+}
+
+.textContainer{
+  flex-direction: column;
+  gap: 52px; 
+  width: 496px;
+}
+
+.title{
+  font-family: 'PP Mondwest';
+  font-size: 96px; 
+  color: #181818; 
+  font-weight: 100;
+}
+
+.description{
+  color: #606060;
+  font-family: 'PP Supply Sans';
+  font-size: 24px;
+}
+
+.rightContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.imageWrapper{
+  width: 300px;
+  height: 300px;
+  border-radius: 50%; 
+  overflow: hidden;
+  margin-top: 120px;
+  margin-bottom: 67px;
+}
+
+.pfp{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

@@ -2,13 +2,11 @@ import React from 'react';
 import styles from '../styles/sections/Hero.module.css';
 import NameTitle from '../components/NameTitle';
 import Button from '../components/Button';
-import Navbar from '../components/Navbar';
-// import { Script } from '../components/animation/script';
+import { Script } from '../components/animation/script';
 
 function Hero() {
   return (
     <div>
-      <Navbar/>
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <NameTitle text="João Lutti." />
@@ -19,7 +17,7 @@ function Hero() {
           </div>
         </div>
       </section>
-      {/* <Script/> */}
+      <Script/>
     </div>
   );
 }
