@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Hero.module.css';
+import styles from '../styles/sections/Hero.module.css';
 import NameTitle from '../components/NameTitle';
 import Button from '../components/Button';
 import Navbar from '../components/Navbar';
