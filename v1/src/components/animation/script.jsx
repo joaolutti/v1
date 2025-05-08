@@ -1,40 +1,41 @@
-// src/components/animation/script.jsx
 import React, { useEffect, useRef } from 'react';
-import { animate, stagger, utils, createTimeline } from 'animejs';
+import { animate, stagger, utils, createTimeline, createTimer } from 'animejs';
 import styles from './script.module.css';
 
 export function Script() {
   const creatureRef = useRef(null);
-  const animationTimeline = useRef(null); // Ref to store the timeline for cleanup
 
   useEffect(() => {
-    // --- Configuration ---
-    const rows = 20; // Original value
+    const rows = 10;
     const grid = [rows, rows];
-    const from = 'center';
-    const scaleStagger = stagger([2, 3.5], { ease: 'inQuad', grid, from });
-    const opacityStagger = stagger([1, 0.5], { grid, from }); // Adjusted from 0.1 in original
+    const from = 'center'; //'first', 'last'
 
-    const creatureEl = creatureRef.current; // Get the actual DOM element
-    if (!creatureEl) return; // Guard clause if ref is null
+    const viewport = { //limit how far the particles can move
+      width: window.innerWidth * 0.5,
+      height: window.innerHeight * 0.5,
+    };
+    const cursor = { x: 0, y: 0 }; //acts as an 'anchor'
 
-    // --- Particle Creation ---
-    creatureEl.innerHTML = '';
+    const scaleStagger = stagger([1, 2.5], { ease: 'inQuad', grid, from }); //can tweak with these
+    const opacityStagger = stagger([1, 0.5], { grid, from });
+
+    const creature = creatureRef.current; 
+
+    creature.innerHTML = ''; //safety clean up
     for (let i = 0; i < (rows * rows); i++) {
-      const div = document.createElement('div');
-      div.className = styles.particle;
-      creatureEl.appendChild(div);
+      const div = document.createElement('div'); //create a div for each particle
+      div.className = styles.particle; //add the particle class
+      creature.appendChild(div); //append the div to the creature element
     }
-    const particleEls = creatureEl.querySelectorAll(`.${styles.particle}`);
-    if (particleEls.length === 0) return; // Guard clause if no particles found
+    const particles = creature.querySelectorAll(`.${styles.particle}`); //stores all particles in var
 
-    // --- Initial Styling ---
-    utils.set(creatureEl, {
+
+    utils.set(creature, {
       width: `${rows * 10}em`,
       height: `${rows * 10}em`
     });
 
-    utils.set(particleEls, {
+    utils.set(particles, {
       x: 0,
       y: 0,
       scale: scaleStagger,
@@ -50,13 +51,9 @@ export function Script() {
       zIndex: stagger([rows * rows, 1], { grid, from, modifier: () => 0 }),
     });
 
-    // --- Pulse Animation Function ---
+    //pulse animation
     const pulse = () => {
-      // Double-check particles exist before animating
-      const currentParticles = creatureRef.current?.querySelectorAll(`.${styles.particle}`);
-      if (!currentParticles || currentParticles.length === 0) return;
-
-      animate(currentParticles, {
+      animate(particles, {
         keyframes: [
           {
             scale: 5,
@@ -64,8 +61,8 @@ export function Script() {
             delay: stagger(90, { start: 1650, grid, from }),
             duration: 150,
           }, {
-            scale: scaleStagger, // Return to original staggered scale
-            opacity: opacityStagger, // Return to original staggered opacity
+            scale: scaleStagger, 
+            opacity: opacityStagger, 
             ease: 'inOutQuad',
             duration: 600
           }
@@ -73,46 +70,50 @@ export function Script() {
       });
     };
 
-    // --- Auto Pulse Timeline ---
-    // Define callbacks DIRECTLY in the createTimeline options
-    animationTimeline.current = createTimeline({
-        loop: true,
-        // Add callbacks here:
-        onBegin: pulse, 
-        onLoop: pulse,
+    //main loop
+    const mainLoop = createTimer({
+      frameRate: 60,
+      onUpdate: () => {
+        animate(particles,{
+          x:cursor.x,
+          y:cursor.y,
+          delay: stagger(40, {grid, from}),
+          duration: stagger(120, {start: 750, ease: 'inQuad', grid, from}),
+          ease: 'InOut',
+          composition: 'blend',
+        });
+      },
     });
-
-    // Add a dummy animation step to give the timeline a duration
-    // and define the loop frequency. Adjust duration as needed.
-    // The pulse function will be called based on the timeline's loop.
-    animationTimeline.current.add({ duration: 5000 }); // Adjust duration for pulse frequency
-
-    // NO LONGER NEEDED:
-    // animationTimeline.current.eventCallback('onBegin', pulse);
-    // animationTimeline.current.eventCallback('onLoop', pulse);
-
-    // Start the timeline
-    animationTimeline.current.play();
-
-    // --- Cleanup Function ---
+    mainLoop.play();
+    
+    const movement = createTimeline()
+    .add(cursor, {
+      x: [-viewport.width * 0.45, viewport.width * 0.45],
+      modifier: x => x + Math.sin(mainLoop.currentTime * 0.0007)* viewport.width * 0.5,
+      duration: 3000,
+      ease: 'inOutExpo',
+      alternate: true,
+      loop: true,
+      onBegin: pulse,
+      onLoop: pulse,
+    }, 0)
+    .add(cursor, {
+      y: [-viewport.height * 0.45, viewport.height * 0.45],
+      modifier: y => y + Math.cos(mainLoop.currentTime * 0.00012)* viewport.height * 0.5,
+      duration: 1000,
+      ease: 'inOutQuad',
+      alternate: true,
+      loop: true,
+    }, 0);
+    movement.play();
+    
     return () => {
-      if (animationTimeline.current) {
-        animationTimeline.current.pause();
-        // Anime.js v3 doesn't require removing callbacks manually like this
-        // animationTimeline.current.eventCallback('onBegin', null); 
-        // animationTimeline.current.eventCallback('onLoop', null);
-      }
-      // Ensure particles exist before trying to remove animation
-      const currentParticles = creatureRef.current?.querySelectorAll(`.${styles.particle}`);
-      if (currentParticles && currentParticles.length > 0) {
-          animate.remove(currentParticles);
-      }
-      if (creatureRef.current) {
-          creatureRef.current.innerHTML = '';
-      }
+      mainLoop.pause();
+      movement.pause();
+      creature.innerHTML = '';
     };
 
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []);
 
   return (
     <div className={styles.wrapper}>
