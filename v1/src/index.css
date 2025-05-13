@@ -1,3 +1,22 @@
+@font-face {
+  font-family: 'PP Supply Sans Ultralight';
+  src: url('./assets/fonts/PPSupplySans-Ultralight.woff2') format('woff2');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'PP Mondwest';
+  src: url('./assets/fonts/PPMondwest-Regular.woff2') format('woff2');  
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'PP Supply Sans Regular';
+  src: url('./assets/fonts/PPSupplySans-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+
 :root {
   font-family: 'PP Supply Sans Ultralight';
   line-height: normal;

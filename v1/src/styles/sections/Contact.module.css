@@ -1,0 +1,44 @@
+.contact {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 700px; /* Constrain width for better readability */
+    margin: 0 auto; /* Center the container */
+}
+
+.title{
+    font-family: 'PP Mondwest';
+    font-size: 64px;
+    color: #181818;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.description{
+    color: #606060; 
+    font-family: 'PP Supply Sans'; 
+    font-size: 20px;
+    max-width: 550px;
+    margin-bottom: 30px;
+}
+
+.buttonContainer {
+    margin-bottom: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.socialsContainer {
+    display: flex;
+    gap: 20px; /* Space between icons */
+    justify-content: center;
+}
+
+

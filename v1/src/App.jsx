@@ -1,16 +1,17 @@
 //import { Script } from "./components/animation/script";
 import Navbar from './components/Navbar';
 import Hero from './sections/hero';
-import CodeBlock from './components/CodeBlock';
 import About from './sections/About';
+import Contact from './sections/Contact';
 
 function App() {
 
   return (
     <>
-    <Navbar />
+    {/* <Navbar />
     <Hero />
-    <About />
+    <About /> */}
+    <Contact />
     </>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../styles/components/Button.module.css';
+import styles from '../styles/components/Button2.module.css';
 
-function Button({ text, href }) {
+function Button2({ text, href }) {
   return (
     <a href={href} className={styles.button}>
       <span className={styles.text}>{text}</span>
@@ -9,4 +9,4 @@ function Button({ text, href }) {
   );
 }
 
-export default Button; 
+export default Button2 
