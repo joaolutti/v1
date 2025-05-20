@@ -14,7 +14,7 @@
 
 .title{
     font-family: 'PP Mondwest';
-    font-size: 64px;
+    font-size: 96px;
     color: #181818;
     font-weight: 100;
     margin-bottom: 20px;
@@ -23,7 +23,7 @@
 .description{
     color: #606060; 
     font-family: 'PP Supply Sans'; 
-    font-size: 20px;
+    font-size: 24px;
     max-width: 550px;
     margin-bottom: 30px;
 }
@@ -35,10 +35,26 @@
     justify-content: center;
 }
 
+.buttonContainer :global(button) {
+    font-size: 36px;
+    padding: 12px 30px;
+}
+
 .socialsContainer {
     display: flex;
-    gap: 20px; /* Space between icons */
+    gap: 25px; /* space between icons */
     justify-content: center;
+}
+
+.socialsContainer a {
+    color: #181818;
+    font-size: 28px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.socialsContainer a:hover {
+    color: #181818;
 }
 
 

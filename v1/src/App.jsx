@@ -11,7 +11,11 @@ function App() {
     {/* <Navbar />
     <Hero />
     <About /> */}
-    <Contact />
+    <Hero />
+
+
+    {/* done */}
+    {/* <Contact /> */}
     </>
   )
 }

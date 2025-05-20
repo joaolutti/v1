@@ -1,7 +1,7 @@
 .button{
     position: relative;
     display: inline-block;
-    padding: 12px 24px;
+    padding: 18px 28px;
     background-color: #E1E0D1;
     color:#181818;
     text-decoration: none;
@@ -10,8 +10,10 @@
     border: 1px solid #181818;
     transition: color 0.3s, ease-in-out; /* can maybe change this */
     font-family: "PP Mondwest";
-    font-size: 16px;
+    font-size: 24px;
 }
+
+/* 24-16=8 24+8=32 12+8=20 */
 
 .button::before{
     content: "";
