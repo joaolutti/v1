@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '../styles/sections/About.module.css';
 import CodeBlock from '../components/CodeBlock';
-import Navbar from '../components/Navbar';
 
 export default function About() {
 

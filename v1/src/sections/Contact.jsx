@@ -21,10 +21,10 @@ function Contact(){
                     <Button2 text="Say Hello!" href="mailto:your-email@example.com" />
                 </div>
                 <div className={styles.socialsContainer}>
-                    <a>
+                    <a href='https://www.linkedin.com'>
                         <PiLinkedinLogoFill />
                     </a>
-                    <a>
+                    <a href='https://www.github.com'>
                         <PiGithubLogoThin />
                     </a>
                     <a>

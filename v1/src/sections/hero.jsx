@@ -4,10 +4,10 @@ import NameTitle from '../components/NameTitle';
 import Button from '../components/Button';
 import { Script } from '../components/animation/script';
 import Waves from '../components/animation/waves';
+import { FaArrowDown } from 'react-icons/fa';
 
 function Hero() {
   return (
-    <div>
       <section className={styles.hero}>
         <div className={styles.heroTextContainer}>
           <NameTitle text="João Lutti." />
@@ -16,14 +16,11 @@ function Hero() {
             <Button text="view my work" href="#projects" />
             <Button text="contact me" href="#contact" />
           </div>
-          <div className={styles.verticalLine}></div>
-          <div className={styles.heroAnimationContainer}>
-            <Waves />
-          </div>
+        </div>
+        <div className={styles.scrollArrow}>
+          <FaArrowDown />
         </div>
       </section>
-      {/* <Script/> */}
-    </div>
   );
 }
 

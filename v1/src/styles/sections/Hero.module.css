@@ -1,17 +1,23 @@
 .hero {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 50px 5%; 
-  min-height: 80vh; 
+  justify-content: center;
+  padding: 5px 5%;
   font-family: 'PP Supply Sans Ultralight', sans-serif;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 1;
 }
 
 .heroTextContainer {
   flex: 1;
   max-width: 500px;
   position: relative;
-  margin-left: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .heroAnimationContainer {
@@ -41,9 +47,9 @@
 
 
 .subText {
-  font-size:48px;
+  font-size: 48px;
   color: #181818;
-  text-align: left;
+  text-align: center;
   width: 388px;
   margin-top: 0.1em;
   margin-bottom: 70px;
@@ -53,5 +59,29 @@
   display: flex;
   margin-top: 20px;
   gap: 80px;
+  justify-content: center;
+}
+
+.scrollArrow {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: #181818;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-20px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-10px) translateX(-50%);
+  }
 }
 

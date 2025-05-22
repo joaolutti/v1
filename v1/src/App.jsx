@@ -9,14 +9,16 @@ function App() {
 
   return (
     <>
-    <Navbar />
-    <Hero />
-    <About />
+    <div>
+      {/* <Navbar /> */}
+      <Hero />
+      <About />
 
 
 
-    {/* done */}
-    <Contact />
+      {/* done */}
+      {/* <Contact /> */}
+    </div>
     </>
   )
 }
