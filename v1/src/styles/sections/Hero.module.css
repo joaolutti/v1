@@ -1,10 +1,38 @@
 .hero {
   display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
   padding: 50px 5%; 
   min-height: 80vh; 
   font-family: 'PP Supply Sans Ultralight', sans-serif;
+}
+
+.heroTextContainer {
+  flex: 1;
+  max-width: 500px;
+  position: relative;
+  margin-left: 160px;
+}
+
+.heroAnimationContainer {
+  position: absolute;
+  left: -45px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: calc(225px + 3px);
+  padding-left: 530px;
+}
+
+.verticalLine {
+  position: absolute;
+  right: -215px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  height: 250px;
+  background-color: #181818;
+  border-radius: 10px;
+  margin-top: 100px;
 }
 
 .heroContent {
@@ -18,11 +46,12 @@
   text-align: left;
   width: 388px;
   margin-top: 0.1em;
-  margin-bottom: 1.5em;
+  margin-bottom: 70px;
 }
 
 .actions {
   display: flex;
   margin-top: 20px;
+  gap: 80px;
 }
 

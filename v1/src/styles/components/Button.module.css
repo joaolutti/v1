@@ -1,10 +1,37 @@
 .button {
-  font-family: 'PP Supply Sans Ultralight', sans-serif; /* Assuming from your index.css */
+  font-family: 'PP Supply Sans Ultralight';
   text-decoration: none;
   color: #181818; 
-  padding-bottom: 2px;
-  border-bottom: 1px solid #181818; 
   font-size: 32px;
   text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1); 
+  transition-duration: 400ms; 
+  transition-property: color;
 }
+
+/* Removed .button::before and .button:hover::before */
+
+
+.button::after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px; 
+  background-color: #181818;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+
+.button:hover::after,
+.button:focus::after {
+  width: 100%;
+  left: 0%;
+}
+
 
